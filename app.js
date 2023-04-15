@@ -51,16 +51,22 @@ app.use(
         store: secretPanda,
     })
 );
-
 // use route 
 const route = require('./routes/index');
+//  cors
+const cors = require("cors")
+app.use("/api", cors({
+    origin: '*'
+}), route)
 route(app)
+
+
 // port
 var port = process.env.PORT || 1102;
 // running server
 const log = console.log;
 const success = console.success;
 log(`============================`.rainbow.bold)
-app.listen(port, () => 
-log("| ".rainbow +`Server running on [${port}]`.green.underline.bold + " |".rainbow)
+app.listen(port, () =>
+    log("| ".rainbow + `Server running on [${port}]`.green.underline.bold + " |".rainbow)
 )
