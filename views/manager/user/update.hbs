@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Panda Manager</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Construction Html5 Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
+    <!-- Themefisher Icon font -->
+    <link rel="stylesheet" href="/plugins/themefisher-font/style.css">
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/plugins/animate/animate.css">
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="/plugins/slick/slick.css">
+    <link rel="stylesheet" href="/plugins/slick/slick-theme.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+
+</head>
+
+<body id="body">
+    <div class="container">
+        <form class="text-left clearfix" action="/manager/user" method="post">
+            <input type="hidden" name="id" value="{{data._id}}">
+            <div class="form-group">
+                <input name="fname" value="{{data.fname}}" type="text" class="form-control" placeholder="First Name"
+                    required>
+            </div>
+            <div class="form-group">
+                <input name="lname" value="{{data.lname}}" type="text" class="form-control" placeholder="Last Name"
+                    required>
+            </div>
+            <div class="form-group">
+                <input name="email" value="{{data.email}}" type="email" class="form-control" placeholder="Email"
+                    required>
+            </div>
+            <div class="form-group">
+                <input name="phone" value="{{data.phone}}" type="phone" class="form-control" placeholder="Phone"
+                    required>
+            </div>
+            <div class="form-group">
+                <input name="password" value="{{data.password}}" type="password" class="form-control"
+                    placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <input name="address" value="{{data.address}}" type="text" class="form-control" placeholder="Address"
+                    required>
+            </div>
+            <div class="form-group">
+                <input name="role" value="{{data.role}}" type="text" class="form-control" placeholder="Role" required>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-main text-center">Update</button>
+            </div>
+        </form>
+        <!-- Main jQuery -->
+        <script src="/plugins/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap 3.1 -->
+        <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <!-- Bootstrap Touchpin -->
+        <script src="/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+        <!-- Instagram Feed Js -->
+        <script src="/plugins/instafeed/instafeed.min.js"></script>
+        <!-- Video Lightbox Plugin -->
+        <script src="/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+        <!-- Count Down Js -->
+        <script src="/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+
+        <!-- slick Carousel -->
+        <script src="/plugins/slick/slick.min.js"></script>
+        <script src="/plugins/slick/slick-animation.min.js"></script>
+
+        <!-- Main Js File -->
+        <script src="/js/script.js"></script>
+
+
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (() => {
+                'use strict'
+
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                const forms = document.querySelectorAll('.needs-validation')
+
+                // Loop over them and prevent submission
+                Array.from(forms).forEach(form => {
+                    form.addEventListener('submit', event => {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+            })()
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Panda Manager</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Construction Html5 Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
+    /
+    <!-- Themefisher Icon font -->
+    <link rel="stylesheet" href="/plugins/themefisher-font/style.css">
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/plugins/animate/animate.css">
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="/plugins/slick/slick.css">
+    <link rel="stylesheet" href="/plugins/slick/slick-theme.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+
+</head>
+
+<body id="body">
+    <section class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="content">
+                        <h1 class="page-name">Dashboard</h1>
+                        <ol class="breadcrumb">
+                            <li><a href="/">Home</a></li>
+                            <li class="active"><a href="/manager">Admin</a></li>
+                            <li class="active">Add Product</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <form action="/manager/product" enctype="multipart/form-data" method="post" class="form-horizontal" role="form">
+
+            <div class="form-group">
+                <label for="name" class="col-sm-3 control-label">Name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Name products">
+                </div>
+            </div> <!-- form-group // -->
+            <div class="form-group">
+                <label for="name" class="col-sm-3 control-label">Price</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="price" id="price" placeholder="Price">
+                </div>
+            </div> <!-- form-group // -->
+            
+            {{!-- <div class="form-group">
+                <label for="category" class="col-sm-3 control-label">Category</label>
+                <div class="col-sm-3">
+                    <select class="form-control" name="category" id="category" aria-label="Default select example">
+                        <option selected>Select category</option>
+                        <option value="Áo thun">Áo thun</option>
+                        <option value="Áo khoác">Áo khoác</option>
+                        <option value="Áo sơ mi">Áo sơ mi</option>
+                        <option value="Hoodie">Hoodie</option>
+                        <option value="Quần dài">Quần dài</option>
+                        <option value="Áo Polo">Áo Polo</option>
+                        <option value="Quần đùi">Quần đùi</option>
+                        <option value="Quần Jean">Quần Jean</option>
+                        <option value="Đồ lót">Đồ lót</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="brand" class="col-sm-3 control-label">Brand</label>
+                <div class="col-sm-3">
+                    <select class="form-control" name="brand" id="brand" aria-label="Default select example">
+                        <option selected>Select Brand</option>
+                        <option value="Coolmate">Coolmate</option>
+                        <option value="Nocturnal">Nocturnal</option>
+                        <option value="Roway">Roway</option>
+                        <option value="City Cycle">City Cycle</option>
+                        <option value="Levents">Levents</option>
+                        <option value="Teelabs">Teelabs</option>
+                        <option value="Aviano">Aviano</option>
+                        <option value="Lados">Lados</option>
+                        <option value="Leevus">Leevus</option>
+                    </select>
+                </div>
+            </div> --}}
+            <div class="form-group">
+                <label for="qty" class="col-sm-3 control-label">Description</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="description" id="qty" placeholder="Description">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="image" class="col-sm-3 control-label">Image</label>
+                <div class="col-sm-3">
+                    <label class="control-label small" for="image">Image product (jpg/png):</label>
+                    <input type="file" name="image">
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" class="btn btn-primary">Add product</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main jQuery -->
+    <script src="/plugins/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.1 -->
+    <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Touchpin -->
+    <script src="/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <!-- Instagram Feed Js -->
+    <script src="/plugins/instafeed/instafeed.min.js"></script>
+    <!-- Video Lightbox Plugin -->
+    <script src="/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+    <!-- Count Down Js -->
+    <script src="/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+
+    <!-- slick Carousel -->
+    <script src="/plugins/slick/slick.min.js"></script>
+    <script src="/plugins/slick/slick-animation.min.js"></script>
+
+    <!-- Main Js File -->
+    <script src="/js/script.js"></script>
+
+
+
+</body>
+
+</html>

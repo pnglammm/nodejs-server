@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Panda Manager</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Construction Html5 Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
+    /
+    <!-- Themefisher Icon font -->
+    <link rel="stylesheet" href="/plugins/themefisher-font/style.css">
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/plugins/animate/animate.css">
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="/plugins/slick/slick.css">
+    <link rel="stylesheet" href="/plugins/slick/slick-theme.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+
+</head>
+
+<body id="body">
+    <section class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="content">
+                        <h1 class="page-name">Dashboard</h1>
+                        <ol class="breadcrumb">
+                            <li><a href="/index">Home</a></li>
+                            <li><a href="">Manager</a></li>
+                            <li class="active">Products</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="user-dashboard page-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="list-inline dashboard-menu text-center">
+                        <li><a class="active" href="product">Products</a></li>
+                        <li><a href="user">Users</a></li>
+                    </ul>
+                    {{!-- ================== --}}
+                    {{!-- ================== --}}
+                    {{!-- ================== --}}
+                    {{!-- ================== --}}
+                    {{!-- Button add product --}}
+
+                    {{!-- Button add user --}}
+
+                    {{!-- ================== --}}
+                    {{!-- ================== --}}
+                    {{!-- ================== --}}
+                    <div class="dashboard-wrapper user-dashboard" style="padding-bottom: 0 !important;">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr class="row">
+                                        <th class="col-md-2">Image</th>
+                                        <th class="col">Name</th>
+                                        <th class="col">Price</th>
+                                        <th class="col">Decription</th>
+                                        <th class="col">
+                                            <form style="display: flex !important; justify-content: space-between;"
+                                                action="/">
+                                                {{!-- <input style="width: 80% !important;" type="search"
+                                                    class="form-control" placeholder="Search..."> --}}
+                                                <a href="/manager/product/add">
+                                                    <button type="button" class="btn btn-default"><i
+                                                            class="tf-ion-android-add" aria-hidden="true"></i></button>
+                                                </a>
+                                            </form>
+
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody valign="top">
+                                    {{#each productData}}
+                                    <tr class="row">
+                                        <th class="col-md-2">
+                                            <div style="margin-right: 10px;">
+                                                <img class="image-product" style="width: 100% !important;" src="/uploads/productsImage/{{this.image}}"
+                                                    alt="">
+                                            </div>
+                                        </th>
+                                        <th class="col">{{this.name}}</th>
+                                        <th class="col">{{this.price}}</th>
+                                        <th class="col">
+                                            <p class="des-product scroll-box" style="height: 100%;">{{this.description}}</p>
+                                        </th>
+                                        <td class="col">
+                                            <div class="btn-group" role="group">
+                                                <a href="/manager/product/update/{{this._id}}">
+                                                    <button type="button" class="btn btn-default"><i class="tf-pencil2"
+                                                            aria-hidden="true"></i></button>
+                                                </a>
+                                                <a href="/manager/product/delete/{{this._id}}"
+                                                    onclick="return confirm('Bạn có muốn xóa không ?')">
+                                                    <button type="button" class="btn btn-default"><i
+                                                            class="tf-ion-close" aria-hidden="true"></i></button>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main jQuery -->
+    <script src="/plugins/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.1 -->
+    <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Touchpin -->
+    <script src="/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <!-- Instagram Feed Js -->
+    <script src="/plugins/instafeed/instafeed.min.js"></script>
+    <!-- Video Lightbox Plugin -->
+    <script src="/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+    <!-- Count Down Js -->
+    <script src="/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+
+    <!-- slick Carousel -->
+    <script src="/plugins/slick/slick.min.js"></script>
+    <script src="/plugins/slick/slick-animation.min.js"></script>
+    <!-- Main Js File -->
+    <script src="/js/script.js"></script>
+
+
+
+</body>
+
+</html>
