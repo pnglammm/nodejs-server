@@ -58,7 +58,7 @@ app.get("/", (req, res) => {
     res.json({
         status: "SERVER ON",
         "How to get user list": "/api/userAPI",
-        "How to get product list": "api/productAPI"
+        "How to get product list": "/api/productAPI"
     })
 })
 const APIroute = require('./routes/api');
