@@ -14,5 +14,13 @@ class APIController {
             res.status(200).json(user_ar)
         });
     }
+    api(req, res) {
+        userModels.find({}).then((user_ar) => {
+            res.json({
+                status: true,
+                message: "Welcome to API"
+            })
+        });
+    }
 }
 module.exports = new APIController;
