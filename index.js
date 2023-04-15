@@ -55,9 +55,11 @@ app.use(
 const route = require('./routes/index');
 //  cors
 app.get("/", (req, res) => {
-    res.send(
-        'SERVER ON /api/userAPI: get list user || api/productAPI: get list Product'
-        )
+    res.json({
+        status: "SERVER ON",
+        "How to get user list": "/api/userAPI",
+        "How to get product list": "api/productAPI"
+    })
 })
 const APIroute = require('./routes/api');
 const cors = require("cors")
