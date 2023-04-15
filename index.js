@@ -54,17 +54,17 @@ app.use(
 // use route 
 const route = require('./routes/index');
 //  cors
-// app.get("/", (req, res) => {
-//     res.send('SERVER ON')
-// })
-// const APIroute = require('./routes/api');
-// const cors = require("cors")
-// app.use("/api", cors({
-//     origin: '*'
-// }), APIroute)
-// app.get("*", (req, res) => {
-//     res.send("Nhập Sai Đường Dẫn! Vui Lòng Nhập Lại >.<")
-// });
+app.get("/", (req, res) => {
+    res.send('SERVER ON')
+})
+const APIroute = require('./routes/api');
+const cors = require("cors")
+app.use("/api", cors({
+    origin: '*'
+}), APIroute)
+app.get("*", (req, res) => {
+    res.send("Nhập Sai Đường Dẫn! Vui Lòng Nhập Lại >.<")
+});
 route(app)
 
 
