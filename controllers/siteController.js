@@ -18,8 +18,10 @@ class siteController {
             } else {
                 res.render('login')
             }
-          });
-        
+        });
+    }
+    indexAPI(req, res) {
+        res.status(201).json(product_ar)
     }
 
     registerIndex(req, res) {
@@ -27,11 +29,11 @@ class siteController {
             if (err) throw err;
 
             if (req.session.loggedin) {
-                    res.redirect("/index");
+                res.redirect("/index");
             } else {
                 res.render('register')
             }
-          });
+        });
 
     }
 
@@ -44,7 +46,7 @@ class siteController {
         req.session.destroy();
         fs.writeFile('Email.txt', "", err => {
             if (err) throw err;
-          });
+        });
         // redirect to homepage
         res.redirect('/login')
     }
