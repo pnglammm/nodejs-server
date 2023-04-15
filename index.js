@@ -62,7 +62,9 @@ const cors = require("cors")
 app.use("/api", cors({
     origin: '*'
 }), APIroute)
-
+app.get("*", (req, res) => {
+    res.send("Nhập Sai Đường Dẫn! Vui Lòng Nhập Lại >.<")
+});
 route(app)
 
 
