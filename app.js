@@ -54,6 +54,9 @@ app.use(
 // use route 
 const route = require('./routes/index');
 //  cors
+app.get("/", (req, res) => {
+    res.send('SERVER ON')
+})
 const cors = require("cors")
 app.use("/api", cors({
     origin: '*'
