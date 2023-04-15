@@ -15,7 +15,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/"
+      "destination": "/views/Layout/main.hbs"
     }
   ]
 }
