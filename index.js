@@ -57,10 +57,12 @@ const route = require('./routes/index');
 app.get("/", (req, res) => {
     res.send('SERVER ON')
 })
+const APIroute = require('./routes/api');
 const cors = require("cors")
 app.use("/api", cors({
     origin: '*'
-}), route)
+}), APIroute)
+
 route(app)
 
 

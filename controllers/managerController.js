@@ -42,12 +42,7 @@ class siteController {
             }
         });
     }
-    // product API
-    listProductAPI(req,res){
-        productModels.find({}).then((product_ar) => {
-            res.status(201).json(product_ar)
-        });
-    }
+    
     async deleteProduct(req, res) {
         try {
             const u = await productModels.findByIdAndDelete(req.params.id, req.body);
@@ -137,12 +132,7 @@ class siteController {
             console.log("Lỗi nè: ", error);
         }
     }
-    // user
-    listUserAPI(req,res){
-        userModels.find({}).then((user_ar) => {
-            res.status(200).json(user_ar)
-        });
-    }
+   
     user(req, res) {
         fs.readFile('Email.txt', (err, getEmail) => {
             if (err) throw err;

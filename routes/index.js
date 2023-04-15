@@ -4,6 +4,7 @@ const productRouter = require('./product');
 const userRouter = require('./user');
 const registerRouter = require('./register');
 const loginRouter = require('./login');
+const apiRouter = require('./api');
 
 function route(app) {
 
@@ -20,6 +21,7 @@ function route(app) {
 
     // Login => Index
     app.use('/', loginRouter);
+
 }
 
 module.exports = route;
