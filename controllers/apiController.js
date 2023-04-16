@@ -88,90 +88,9 @@ class APIController {
         res.json({
             user
         });
-
-        // try {
-        //     const data = await userModels.findOne({
-        //         email: req.body.email
-        //     });
-        //     await userModels.findOne({
-        //         email: req.body.email
-        //     }).then(data => {
-        //         if (data) {
-        //             if (data.password != null) {
-        //                 if (data.password == req.body.password) {
-        //                     var manager = data.role;
-        //                     console.log(`========= Login success | ${data.role} =========`.cyan.italic.bold);
-        //                     req.session.user = data.email;
-        //                     req.session._id = data._id
-        //                     req.session.loggedin = true;
-        //                     req.session.role = manager;
-        //                     console.log(`Status user log: `.red.bold + ` [${req.session.loggedin}]`.white.bold);
-        //                     console.log(`Email user log:  `.red.bold + `[${req.session.user}]`.white.bold);
-        //                     console.log(`ID user log: `.red.bold + `[${req.session._id}]`.white.bold);
-        //                     console.log(`Role user log: `.red.bold + `[${req.session.role}]`.white.bold);
-        //                     if (manager == "admin") {
-        //                         (manager = "Manager");
-        //                     } else {
-        //                         manager = "";
-        //                     }
-        //                     const getEmail = req.body.email;
-        //                     fs.writeFile('Email.txt', getEmail, err => {
-        //                         if (err) throw err;
-        //                     });
-        //                     res.json({
-        //                         status: "Login Success",
-        //                         error: false,
-        //                         data: data
-        //                     })
-
-        //                 } else {
-        //                     res.json({
-        //                         status: "Error",
-        //                         data: "Wrong password"
-        //                     })
-        //                     console.log(`Wrong password`.red.strikethrough.bold);
-        //                 }
-        //             } else {
-        //                 res.json({
-        //                     status: "Error",
-        //                     data: "Password null"
-        //                 })
-        //                 console.log("Password null".red.strikethrough.bold);
-
-        //             }
-        //         } else {
-        //             res.json({
-        //                 status: "Error",
-        //                 data: "Wrong Email"
-        //             })
-        //             console.log("Wrong Email".red.strikethrough.bold);
-        //         }
-        //     });
-        // } catch (err) {
-        //     res.json({
-        //         status: "Error",
-        //         data: "Failed"
-        //     })
-        //     console.log("Failed".red.strikethrough.bold);
-        // }
     }
     // register POST
     async registerAPI(req, res) {
-        // const user = new userModels(req.body);
-        // try {
-        //     await user.save();
-        //     res.json({
-        //         status: true,
-        //         data: req.body
-        //     })
-        //     console.log(`Register Success`.green.bold);
-        // } catch (error) {
-        //     res.json({
-        //         status: error,
-        //         data: "Register Failed"
-        //     })
-        //     console.log("Register Failed".red.bold);
-        // }
         const {
             fname,
             lname,
@@ -192,7 +111,6 @@ class APIController {
                 message: 'Người dùng đã tồn tại'
             });
         }
-
         // Tạo người dùng mới
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
@@ -206,9 +124,7 @@ class APIController {
             phone,
             role
         });
-
         await newUser.save();
-
         res.json({
             message: 'Đăng ký thành công'
         });

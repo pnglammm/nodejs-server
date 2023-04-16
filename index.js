@@ -4,7 +4,7 @@ require('console-info');
 require('console-error');
 require('console-warn');
 require('console-success');
-var colors = require('colors');
+require('colors');
 var path = require('path');
 const Handlebars = require('handlebars');
 Handlebars.registerPartial('myPartial', '{{_navbar}}')
