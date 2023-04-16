@@ -4,6 +4,8 @@ require('console-info');
 require('console-error');
 require('console-warn');
 require('console-success');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 var colors = require('colors');
 var path = require('path');
 const Handlebars = require('handlebars');
