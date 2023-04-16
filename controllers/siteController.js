@@ -20,14 +20,6 @@ class siteController {
             }
         });
     }
-    indexAPI(req, res) {
-        res.json({
-            status: "SERVER ON",
-            "How to get user list": "/api/userAPI",
-            "How to get product list": "/api/productAPI"
-        })
-    }
-
     registerIndex(req, res) {
         fs.readFile('Email.txt', (err, getEmail) => {
             if (err) throw err;

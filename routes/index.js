@@ -21,7 +21,8 @@ function route(app) {
 
     // Login => Index
     app.use('/', loginRouter);
-
+    
+    app.use('/api', apiRouter);
 }
 
 module.exports = route;

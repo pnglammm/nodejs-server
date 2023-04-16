@@ -4,7 +4,6 @@ var router = express.Router();
 const siteController = require('../controllers/siteController');
 
 router.get('/', siteController.index)
-router.get('/', siteController.indexAPI)
 
 router.get('/logout', siteController.logout)
 
