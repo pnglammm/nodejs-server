@@ -13,15 +13,20 @@ class APIController {
     }
     // user GET
     listUserAPI(req, res) {
-        userModels.find().then((user_ar) => {
-            res.status(201).json(user_ar)
-
+        userModels.find({}).then((user_ar) => {
+            res.json({
+                status: true,
+                data: user_ar
+            })
         });
     }
     // user GET DETAIL
     userDetailAPI(req, res) {
         userModels.findById(req.params.id).then(function (docs) {
-            res.status(201).json(docs)
+            res.json({
+                status: true,
+                data: docs
+            })
         });
     }
     // user POST
@@ -29,7 +34,10 @@ class APIController {
     // product GET
     listProductAPI(req, res) {
         productModels.find({}).then((product_ar) => {
-            res.status(201).json(product_ar)
+            res.json({
+                status: true,
+                data: product_ar
+            })
         });
     }
     // product POST
@@ -37,7 +45,10 @@ class APIController {
     // product GET DETAIL
     productDetailAPI(req, res) {
         productModels.findById(req.params.id).then(function (docs) {
-            res.status(201).json(docs)
+            res.json({
+                status: true,
+                data: docs
+            })
         });
     }
     // login GET
