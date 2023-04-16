@@ -74,7 +74,6 @@ app.get("*", (req, res) => {
 var port = process.env.PORT || 1102;
 // running server
 const log = console.log;
-const success = console.success;
 log(`============================`.rainbow.bold)
 app.listen(port, () =>
     log("| ".rainbow + `Server running on [${port}]`.green.underline.bold + " |".rainbow)
