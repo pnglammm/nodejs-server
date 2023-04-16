@@ -62,15 +62,15 @@ class APIController {
 
         // Tìm kiếm người dùng với email
         const user = await userModels.findOne({
-            email
+            email: email
         });
+        
 
         if (!user) {
             return res.status(400).json({
                 message: 'Email không tồn tại'
             });
         }
-
         // Kiểm tra mật khẩu
         const isMatch = await bcrypt.compare(password, user.password);
 
@@ -86,7 +86,7 @@ class APIController {
         }, 'secretkey');
 
         res.json({
-            token
+            user
         });
 
         // try {
@@ -176,12 +176,15 @@ class APIController {
             fname,
             lname,
             email,
-            password
+            password,
+            address,
+            phone,
+            role
         } = req.body;
 
         // Kiểm tra xem người dùng đã tồn tại chưa
-        const user = await User.findOne({
-            email
+        const user = await userModels.findOne({
+            email: email
         });
 
         if (user) {
@@ -194,11 +197,14 @@ class APIController {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
-        const newUser = new User({
+        const newUser = new userModels({
             fname,
             lname,
             email,
             password: hashedPassword,
+            address,
+            phone,
+            role
         });
 
         await newUser.save();
