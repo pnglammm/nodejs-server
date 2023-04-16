@@ -21,7 +21,11 @@ class siteController {
         });
     }
     indexAPI(req, res) {
-        res.status(201).json(product_ar)
+        res.json({
+            status: "SERVER ON",
+            "How to get user list": "/api/userAPI",
+            "How to get product list": "/api/productAPI"
+        })
     }
 
     registerIndex(req, res) {
