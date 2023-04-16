@@ -5,6 +5,9 @@ require('console-error');
 require('console-warn');
 require('console-success');
 require('colors');
+require('bcryptjs');
+require('jsonwebtoken');
+
 var path = require('path');
 const Handlebars = require('handlebars');
 Handlebars.registerPartial('myPartial', '{{_navbar}}')
