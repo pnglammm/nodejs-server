@@ -40,6 +40,7 @@
     "socketio-file-upload": "^0.7.3"
   },
   "devDependencies": {
+    "@vercel/node": "^2.10.3",
     "console-error": "^0.0.4",
     "console-info": "^0.0.5",
     "console-warn": "^0.0.4"
