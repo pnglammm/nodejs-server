@@ -64,8 +64,6 @@ class APIController {
         const user = await userModels.findOne({
             email: email
         });
-        
-
         if (!user) {
             return res.status(400).json({
                 message: 'Email không tồn tại'
