@@ -1,6 +1,9 @@
 const userModels = require('../models/userModel');
 const productModels = require('../models/productModel');
 var fs = require('fs');
+const {
+    log
+} = require('console');
 
 class loginController {
     loginIndex(req, res) {
@@ -20,8 +23,11 @@ class loginController {
                             var manager = check.role;
                             console.log(`========= Login success | ${check.role} =========`.cyan.italic.bold);
                             req.session.user = check.email;
-                            
+                            req.session._id = check._id
                             req.session.loggedin = true;
+                            console.log(`Status user log: `.red.bold + ` [${req.session.loggedin}]`.white.bold);
+                            console.log(`Email user log:  `.red.bold + `[${req.session.user}]`.white.bold);
+                            console.log(`ID user log: `.red.bold + `[${req.session._id}]`.white.bold);
                             req.session.role = manager;
                             if (manager == "admin") {
                                 (manager = "Manager");

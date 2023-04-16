@@ -1,5 +1,3 @@
 git add .
 git commit -m 'message'
-git push -u vercel2 main
-
-    // "start": "nodemon app.js"
+git push -u vercelV2 main

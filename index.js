@@ -53,6 +53,7 @@ app.use(
 );
 // use route 
 const route = require('./routes/index');
+route(app)
 //  cors
 app.get("/", (req, res) => {
     res.json({
@@ -69,9 +70,6 @@ app.use("/api", cors({
 app.get("*", (req, res) => {
     res.send("Nhập Sai Đường Dẫn! Vui Lòng Nhập Lại >.<")
 });
-route(app)
-
-
 // port
 var port = process.env.PORT || 1102;
 // running server
