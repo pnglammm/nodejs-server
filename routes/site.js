@@ -12,6 +12,5 @@ router.get('/index', siteController.index)
 router.get('/login', siteController.loginIndex)
 router.get('/register', siteController.registerIndex)
 
-
 //exports
 module.exports = router;

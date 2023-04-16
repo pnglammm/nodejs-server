@@ -14,7 +14,7 @@ router.get('/productAPI/detail/:id', apiController.productDetailAPI)
 // register
 router.post('/register', apiController.registerAPI)
 // login
-router.get('/login', apiController.loginAPI)
+router.post('/login', apiController.loginAPI)
 // logout
 router.get('/logout', apiController.logout)
 

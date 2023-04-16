@@ -84,6 +84,7 @@ class APIController {
                             });
                             res.json({
                                 status: "Login Success",
+                                error: false,
                                 data: data
                             })
 
