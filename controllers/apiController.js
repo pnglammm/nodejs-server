@@ -13,7 +13,7 @@ class APIController {
     }
     // user GET
     listUserAPI(req, res) {
-        userModels.find({}).then((user_ar) => {
+        userModels.find().then((user_ar) => {
             res.status(201).json(user_ar)
 
         });
