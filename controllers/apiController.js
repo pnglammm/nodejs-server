@@ -14,19 +14,14 @@ class APIController {
     // user GET
     listUserAPI(req, res) {
         userModels.find({}).then((user_ar) => {
-            res.json({
-                status: true,
-                data: user_ar
-            })
+            res.status(201).json(user_ar)
+
         });
     }
     // user GET DETAIL
     userDetailAPI(req, res) {
         userModels.findById(req.params.id).then(function (docs) {
-            res.json({
-                status: true,
-                data: docs
-            })
+            res.status(201).json(docs)
         });
     }
     // user POST
@@ -42,10 +37,7 @@ class APIController {
     // product GET DETAIL
     productDetailAPI(req, res) {
         productModels.findById(req.params.id).then(function (docs) {
-            res.json({
-                status: true,
-                data: docs
-            })
+            res.status(201).json(docs)
         });
     }
     // login GET
