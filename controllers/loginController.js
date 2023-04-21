@@ -1,6 +1,8 @@
 const userModels = require('../models/userModel');
 const productModels = require('../models/productModel');
 var fs = require('fs');
+require('colors')
+
 const {
     log
 } = require('console');
@@ -21,7 +23,7 @@ class loginController {
                     if (check.password != null) {
                         if (check.password == req.body.password) {
                             var manager = check.role;
-                            console.log(`========= Login success | ${check.role} =========`.cyan.italic.bold);
+                            console.log(`========= ✅  Login success | ${check.role} =========`.green.bold);
                             req.session.user = check.email;
                             req.session._id = check._id
                             req.session.loggedin = true;
@@ -58,18 +60,19 @@ class loginController {
                             }
                         } else {
                             res.send("Wrong password");
-                            console.log(`Wrong password`.red.strikethrough.bold);
+                            console.log(`Wrong password`.bgRed.white.strikethrough.bold);
                         }
                     } else {
-                        console.log("Password null".red.strikethrough.bold);
+                        console.log("Password null".bgRed.white.strikethrough.bold);
                     }
                 } else {
                     res.send("Wrong Email");
+                    console.log("Wrong Email".bgRed.white.strikethrough.bold);
                     // console.log(req.body);
                 }
             });
         } catch (err) {
-            console.log("Failed ", err);
+            console.log("Failed: ".bgRed.white.strikethrough.bold, err);
         }
     }
 }

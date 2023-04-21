@@ -1,4 +1,5 @@
 const userModels = require('../models/userModel');
+require('colors')
 
 class registerController {
     login(req, res) {

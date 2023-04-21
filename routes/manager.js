@@ -9,7 +9,7 @@ router.get('/product', managerController.product)
 router.post('/product', uploadProduct.single('image'), managerController.addProduct)
 router.get('/product/add', managerController.addProductIndex)
 
-router.post('/', managerController.updateProduct)
+router.post('/', uploadProduct.single('image'),managerController.updateProduct)
 router.get('/product/update/:id', managerController.updateProductIndex)
 
 router.get('/product/delete/:id', managerController.deleteProduct);

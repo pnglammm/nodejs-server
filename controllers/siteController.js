@@ -1,6 +1,7 @@
 const userModels = require('../models/userModel');
 const productModels = require('../models/productModel');
 var fs = require('fs');
+require('colors')
 class siteController {
     index(req, res) {
         fs.readFile('Email.txt', (err, getEmail) => {
@@ -30,9 +31,7 @@ class siteController {
                 res.render('register')
             }
         });
-
     }
-
     loginIndex(req, res) {
         res.render('login')
     }
@@ -44,6 +43,7 @@ class siteController {
             if (err) throw err;
         });
         // redirect to homepage
+        console.log(`⚠️  Logout Success`.yellow);
         res.redirect('/login')
     }
 }

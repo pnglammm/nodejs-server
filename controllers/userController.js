@@ -1,5 +1,6 @@
 const userModels = require('../models/userModel');
 var fs = require('fs');
+require('colors')
 
 class userController {
     userIndex(req, res) {

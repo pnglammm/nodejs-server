@@ -16,6 +16,7 @@
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
+    "cloudinary": "^1.36.1",
     "colors": "^1.4.0",
     "connect-mongodb-session": "^3.1.1",
     "console-success": "^1.0.4",

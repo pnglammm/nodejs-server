@@ -11,7 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
-    /
     <!-- Themefisher Icon font -->
     <link rel="stylesheet" href="/plugins/themefisher-font/style.css">
     <!-- bootstrap.min css -->
@@ -75,16 +74,10 @@
                                         <th class="col">Price</th>
                                         <th class="col">Decription</th>
                                         <th class="col">
-                                            <form style="display: flex !important; justify-content: space-between;"
-                                                action="/">
-                                                {{!-- <input style="width: 80% !important;" type="search"
-                                                    class="form-control" placeholder="Search..."> --}}
-                                                <a href="/manager/product/add">
-                                                    <button type="button" class="btn btn-default"><i
-                                                            class="tf-ion-android-add" aria-hidden="true"></i></button>
-                                                </a>
-                                            </form>
-
+                                            <a href="/manager/product/add">
+                                                <button type="button" class="btn btn-default"><i
+                                                        class="tf-ion-android-add" aria-hidden="true"></i></button>
+                                            </a>
                                         </th>
                                     </tr>
                                 </thead>
@@ -93,14 +86,17 @@
                                     <tr class="row">
                                         <th class="col-md-2">
                                             <div style="margin-right: 10px;">
-                                                <img class="image-product" style="width: 100% !important;" src="/uploads/productsImage/{{this.image}}"
-                                                    alt="">
+                                                <img class="image-product" style="width: 100px !important; height: 100px; object-fit: cover;"
+                                                    src="{{this.image}}" alt="">
                                             </div>
                                         </th>
                                         <th class="col">{{this.name}}</th>
-                                        <th class="col">{{this.price}}</th>
-                                        <th class="col">
-                                            <p class="des-product scroll-box" style="height: 100%;">{{this.description}}</p>
+                                        <th class="col">{{this.price}}$</th>
+                                        <th class="col-md-4">
+                                            <div class="des-product scroll-box"
+                                                style="height:100px;width:100%;font:16px/26px ;overflow:auto;">
+                                                {{this.description}}
+                                            </div>
                                         </th>
                                         <td class="col">
                                             <div class="btn-group" role="group">

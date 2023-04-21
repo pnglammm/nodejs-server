@@ -3,6 +3,8 @@ const productModels = require('../models/productModel');
 var fs = require('fs');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
+require('colors')
+
 class APIController {
     api(req, res) {
         userModels.find({}).then((user_ar) => {

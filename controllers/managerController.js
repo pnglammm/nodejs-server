@@ -1,9 +1,11 @@
 const userModels = require('../models/userModel');
 const productModels = require('../models/productModel');
+const cloudinary = require('../middleware/cloudinary');
+require('colors')
 var fs = require('fs');
-const { log } = require('console');
+const path = require('path');
 
-class siteController {
+class ManagerController {
     manager(req, res) {
         fs.readFile('Email.txt', (err, getEmail) => {
             if (err) throw err;
@@ -42,13 +44,14 @@ class siteController {
             }
         });
     }
-    
+
     async deleteProduct(req, res) {
         try {
             const u = await productModels.findByIdAndDelete(req.params.id, req.body);
             if (!u) {
                 res.send("No have this product!");
             } else {
+                await cloudinary.uploader.destroy(u.cloudinary_id)
                 res.redirect('/manager/product');
                 console.log("Delete product Success!")
             }
@@ -75,38 +78,79 @@ class siteController {
         });
     }
     async addProduct(req, res) {
-        const data = new productModels(req.body);
-        if (req.file) {
-            data.image = req.file.filename;
-        }
+        // const data = new productModels(req.body);
         try {
-            await data.save();
-            res.redirect("/manager/product")
-            console.log("Add product Success!");
+            const result = await cloudinary.uploader.upload(req.file.path, {
+                folder: "imagesProduct"
+            });
+            const data = new productModels({
+                name: req.body.name,
+                description: req.body.description,
+                price: req.body.price,
+                image: result.secure_url,
+                cloudinary_id: result.public_id,
+            });
+            // console.log(`${result.secure_url}`.bgGreen.white);
+            // console.log(`${result.public_id}`.bgGreen.white);
+            try {
+                await data.save();
+                res.redirect("/manager/product")
+                console.log(`Add Product Successfully`.bgGreen.white);
+            } catch (error) {
+                res.status(500).render(error);
+                console.log("Add product Failed", error);
+            }
         } catch (error) {
-            res.status(500).render(error);
-            console.log("Add product Failed", error);
+            console.log(`ERRORR: ${error}`.bgRed.white);
         }
     }
+
     async updateProduct(req, res) {
-        const id = req.body.id;
-        console.log(id);
-        const update = {
-            name: req.body.name,
-            description: req.body.description,
-            price: req.body.price,
-        };
-        const options = {
-            new: true
-        };
-        productModels.findByIdAndUpdate(id, update, options)
-            .then(doc => {
-                res.redirect("/manager/product")
-            })
-            .catch(err => {
-                console.log("Lỗi nè: ", err);
-            });
-        // res.render("manager/product/update");
+        try {
+            let product = await productModels.findById(req.body.id);
+
+            await cloudinary.uploader.destroy(product.cloudinary_id);
+
+            if (req.file != null) {
+                const result = await cloudinary.uploader.upload(req.file.path, {
+                    folder: "imagesProduct"
+                });
+                const data = {
+                    name: req.body.name || product.name,
+                    description: req.body.description || product.description,
+                    price: req.body.price || product.price,
+                    image: result.secure_url || product.image,
+                    cloudinary_id: result.public_id || product.cloudinary_id,
+                }
+                await productModels.findByIdAndUpdate(req.body.id, data, {
+                        new: true
+                    })
+                    .then(doc => {
+                        res.redirect("/manager/product")
+                    })
+                    .catch(err => {
+                        console.log(`Lỗi catch: `.bgRed, err);
+                    });
+            } else {
+                const data = {
+                    name: req.body.name || product.name,
+                    description: req.body.description || product.description,
+                    price: req.body.price || product.price,
+                }
+                await productModels.findByIdAndUpdate(req.body.id, data, {
+                        new: true
+                    })
+                    .then(doc => {
+                        res.redirect("/manager/product");
+                    })
+                    .catch(err => {
+                        console.log(`Lỗi else: `.bgRed, err);
+                    });
+            }
+            console.log(`Update Product Successfully`.bgGreen.white);
+        } catch (error) {
+            console.log(`Lỗi try: `.bgRed, error);
+        }
     }
     async updateProductIndex(req, res) {
         try {
@@ -132,7 +176,7 @@ class siteController {
             console.log("Lỗi nè: ", error);
         }
     }
-   
+
     user(req, res) {
         fs.readFile('Email.txt', (err, getEmail) => {
             if (err) throw err;
@@ -153,6 +197,7 @@ class siteController {
             }
         });
     }
+
     async deleteUser(req, res) {
         try {
             const u = await userModels.findByIdAndDelete(req.params.id, req.body);
@@ -208,4 +253,4 @@ class siteController {
         }
     }
 }
-module.exports = new siteController;
+module.exports = new ManagerController;

@@ -11,7 +11,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 	<!-- Favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
-	/
 	<!-- Themefisher Icon font -->
 	<link rel="stylesheet" href="/plugins/themefisher-font/style.css">
 	<!-- bootstrap.min css -->
@@ -36,7 +35,7 @@
 				<div class="col-md-6">
 					<ol class="breadcrumb">
 						<li><a href="/">Home</a></li>
-						<li><a href="products">Shop</a></li>
+						<li><a href="/product">Shop</a></li>
 						<li class="active">Single Product</li>
 					</ol>
 				</div>
@@ -50,7 +49,7 @@
 								<div class="category-box">
 									<div class='carousel-inner '>
 										<div class='item active'>
-											<img src='/uploads/productsImage/{{data.image}}' alt=''
+											<img src='{{data.image}}' alt=''
 												data-zoom-image="/uploads/productsImage/{{data.image}}" />
 										</div>
 									</div>
@@ -205,11 +204,11 @@
 			<div class="row">
 
 				{{#each productData}}
-				<div class="col-md-3">
+				<div class="col-md-4">
 					<div class="product-item">
 						<div class="product-thumb">
 							{{!-- <span class="bage">HOT</span> --}}
-							<img class="img-responsive" src="/uploads/productsImage/{{this.image}}" alt="product-img" />
+							<img class="img-responsive" src="{{this.image}}" alt="product-img" style="object-fit: cover;" />
 							<div class="preview-meta">
 								<ul>
 									<li>
@@ -243,7 +242,7 @@
 								<div class="row">
 									<div class="col-md-8 col-sm-6 col-xs-12">
 										<div class="modal-image">
-											<img class="img-responsive" src="/uploads/productsImage/{{this.image}}"
+											<img style="object-fit: cover;" src="{{this.image}}"
 												alt="product-img" />
 										</div>
 									</div>
